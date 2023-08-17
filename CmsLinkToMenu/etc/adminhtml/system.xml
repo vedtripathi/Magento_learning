@@ -1,0 +1,46 @@
+<?xml version="1.0" ?>
+<!--
+/**
+ * Saurav
+ *
+ * @category   Saurav
+ * @package    Saurav_CmsLinkToMenu
+ * @author  Amit Bera (dev.amitbera@gmail.com)
+ * @copyright  Copyright (c) 2020 Amit Bera (https://www.amitbera.com/)
+ * @license    http://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+        <section id="cmslinktomenu" showInDefault="1" showInStore="1" showInWebsite="1" sortOrder="999" translate="label">
+            <label>CMS Page and Custom/Static Links to menu</label>
+            <tab>general</tab>
+            <resource>Saurav_CmsLinkToMenu::config_Saurav_cmslinktomenu</resource>
+            <group id="support" translate="label" type="text" sortOrder="0" showInDefault="1" showInWebsite="1" showInStore="1">
+                <frontend_model>Saurav\CmsLinkToMenu\Block\Adminhtml\System\Config\Form\Fieldset\Support</frontend_model>
+            </group>
+            <group id="cms_custom_links" showInDefault="1" showInStore="1" showInWebsite="1" sortOrder="30" translate="label">
+                <label>Cms / Custom /Static Links To Menu</label>
+                <field id="enable" translate="label" type="select" showInDefault="1" showInWebsite="1" showInStore="1" sortOrder="10" canRestore="1" >
+                    <label>Enabled</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="left" translate="label" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                    <label>Custom/Static Links For Left Left Hand</label>
+                    <frontend_class>cms-page-links-list</frontend_class>
+                    <frontend_model>Saurav\CmsLinkToMenu\Block\Adminhtml\Form\Field\CmsPageCustomLinker</frontend_model>
+                    <backend_model>Saurav\CmsLinkToMenu\Model\System\Config\Backend\CmsPageCustomLinker</backend_model>
+                </field>
+                 <field id="right" translate="label" sortOrder="30" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                    <label>Custom/Static Links For Right Hand Section</label>
+                    <frontend_model>Saurav\CmsLinkToMenu\Block\Adminhtml\Form\Field\CmsPageCustomLinker</frontend_model>
+                    <backend_model>Saurav\CmsLinkToMenu\Model\System\Config\Backend\CmsPageCustomLinker</backend_model>
+                </field>
+                <field id="open_in_new_tab" translate="label" type="select" showInDefault="1" showInWebsite="1" showInStore="1" sortOrder="40" canRestore="1" >
+                    <label>Open External Link in new tab</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+            </group>
+        </section>
+    </system>
+</config>
